@@ -1,7 +1,9 @@
 %h1 Show Page
 
 %h3= @post.title
+%small= @post.user.name
 %small= link_to "Visit Art", @post.link, target: :_blank
+= image_tag @post.image.url(:medium)
 %p=simple_format(@post.description)
 
 = link_to "Edit", edit_post_path
