@@ -6,6 +6,13 @@
 = image_tag @post.image.url(:medium)
 %p=simple_format(@post.description)
 
+#comment
+  %h2.comment_count= pluralize(@post.comments.count, "Comment")
+  = render 'comments/form'
+  - @comments.each do |comment|
+    .comment
+      %p.username= comment.user.name
+      %p.content= comment.content
 = link_to "Edit", edit_post_path
 = link_to "Back", root_path
 = link_to "Delete", @post, method: :delete, confirm: {data: "Are You Sure?"}
