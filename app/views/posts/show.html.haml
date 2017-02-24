@@ -1,0 +1,9 @@
+%h1 Show Page
+
+%h3= @post.title
+%small= link_to "Visit Art", @post.link, target: :_blank
+%p=simple_format(@post.description)
+
+= link_to "Edit", edit_post_path
+= link_to "Back", root_path
+= link_to "Delete", @post, method: :delete, confirm: {data: "Are You Sure?"}

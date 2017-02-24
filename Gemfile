@@ -31,7 +31,7 @@ gem 'erb2haml', '~> 0.1.5'
 gem 'font-awesome-sass'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-
+gem 'paperclip', '~> 5.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
