@@ -3,7 +3,7 @@
 - @posts.each do |post|
   = link_to (image_tag post.image.url(:small)), post
   %h3= link_to post.title, post
-  %small= link_to "Visit Art", post.link
+  %p= pluralize(post.comments.count, "Comment")
 
 %hr
 = link_to "New Post", new_post_path
