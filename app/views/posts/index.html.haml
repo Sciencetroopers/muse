@@ -1,9 +1,33 @@
-%h1 Index Page
+- if user_signed_in?
+  %p#intro
+    Hello
+    = current_user.name
+    %br
+    %span
+      Share You Inspiration and See what's inspiring Others.
+- else
+  %p#intro
+    What's You Muse?
+    %br
+    %span
+      Share You Inspiration and See what's inspiring Others.
 
-- @posts.each do |post|
-  = link_to (image_tag post.image.url(:small)), post
-  %h3= link_to post.title, post
-  %p= pluralize(post.comments.count, "Comment")
-
-%hr
-= link_to "New Post", new_post_path
+#posts
+  - @posts.each do |post|
+    .post
+      .post_image
+        = link_to (image_tag post.image.url(:small)), post
+      .post_content
+        .title
+          %h2= link_to post.title, post
+        .data.clearfix
+          %p.username
+            Shared by
+            = post.user.name
+          %p.buttons
+            %span
+              %i.fa.fa-comments-o
+              = pluralize(post.comments.count, "Comment")
+            %span
+              %i.fa.fa-thumbs-o-up
+              = post.get_likes.size
